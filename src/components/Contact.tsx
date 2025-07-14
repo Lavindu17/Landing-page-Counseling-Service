@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
-// Initialize Supabase client (use environment variables)
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+// Initialize Supabase client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error("Missing Supabase environment variables");
+}
+
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,27 +22,27 @@ const Contact: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(false); // Reset submission status
+    setIsLoading(true);
 
     try {
       // Insert form data into Supabase
-      const { error } = await supabase
-        .from("contact_submissions") // Replace with your table name
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            contact_method: formData.contactMethod,
-            message: formData.message,
-            created_at: new Date().toISOString(),
-          },
-        ]);
+      const { error } = await supabase.from("contact_submissions").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          contact_method: formData.contactMethod,
+          message: formData.message,
+          created_at: new Date().toISOString(),
+        },
+      ]);
 
       if (error) {
+        console.error("Supabase error:", error);
         throw new Error(error.message || "Failed to submit form");
       }
 
@@ -52,14 +56,34 @@ const Contact: React.FC = () => {
         message: "",
       });
 
-      // Reset form after 3 seconds
+      // Reset form after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
-      }, 3000);
+      }, 5000);
     } catch (error) {
       console.error("Form submission error:", error);
-      alert(`Error submitting form: ${(error as Error).message}`); // Display error to user
-      setIsSubmitted(false); // Keep form visible on error
+
+      // More user-friendly error messages
+      let errorMessage =
+        "An error occurred while submitting your form. Please try again.";
+
+      if (error instanceof Error) {
+        if (
+          error.message.includes("relation") &&
+          error.message.includes("does not exist")
+        ) {
+          errorMessage =
+            "Database table not found. Please contact the administrator.";
+        } else if (error.message.includes("permission")) {
+          errorMessage = "Permission denied. Please contact the administrator.";
+        } else {
+          errorMessage = error.message;
+        }
+      }
+
+      alert(`Error: ${errorMessage}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -192,10 +216,20 @@ const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 flex items-center justify-center"
+                  disabled={isLoading}
+                  className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 disabled:bg-emerald-400 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center"
                 >
-                  <Send className="h-5 w-5 mr-2" />
-                  Send Message
+                  {isLoading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             ) : (
