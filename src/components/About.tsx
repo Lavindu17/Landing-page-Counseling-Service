@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, BookOpen, Heart, Users, Sparkles } from "lucide-react";
+import { Award, BookOpen, Sparkles } from "lucide-react";
 
 const About = () => {
   return (
@@ -61,15 +61,15 @@ const About = () => {
             {/* Credentials */}
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50">
               <h3 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center mr-3">
-                  <Award className="h-4 w-4 text-white" />
+                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-10 h-10 rounded-full flex items-center justify-center mr-3">
+                  <Award className="h-6 w-6 text-white" />
                 </div>
                 Professional Credentials
               </h3>
               <div className="grid grid-cols-1 gap-6 w-full">
                 <div className="flex items-start group">
                   <div className="bg-gradient-to-r from-emerald-400 to-teal-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
-                    <Award className="h-5 w-5 text-white" />
+                    <BookOpen className="h-5 w-5 text-white" />
                   </div>
                   <div className="w-full">
                     <p className="font-medium text-slate-800">
@@ -77,48 +77,6 @@ const About = () => {
                     </p>
                     <p className="text-slate-600 text-sm">
                       Sri Lanka National Institute of Professional Counselors
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start group">
-                  <div className="bg-gradient-to-r from-teal-400 to-cyan-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
-                    <Heart className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-800">
-                      Trauma-Informed Care Certified
-                    </p>
-                    <p className="text-slate-600 text-sm">
-                      National Center for Trauma-Informed Care
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start group">
-                  <div className="bg-gradient-to-r from-cyan-400 to-blue-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
-                    <Users className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-800">
-                      Group Therapy Specialist
-                    </p>
-                    <p className="text-slate-600 text-sm">
-                      American Group Psychotherapy Association
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start group">
-                  <div className="bg-gradient-to-r from-blue-400 to-indigo-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
-                    <BookOpen className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-800">
-                      Continuing Education
-                    </p>
-                    <p className="text-slate-600 text-sm">
-                      Regular training in latest therapeutic techniques
                     </p>
                   </div>
                 </div>
