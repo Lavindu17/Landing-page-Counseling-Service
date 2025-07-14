@@ -176,7 +176,7 @@ const Contact: React.FC = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200"
-                    placeholder="(123) 456-7890"
+                    placeholder="071 234 5678"
                   />
                 </div>
 
