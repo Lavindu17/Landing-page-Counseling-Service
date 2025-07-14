@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
                     htmlFor="email"
                     className="block text-sm font-medium text-slate-700 mb-2"
                   >
-                    Email Addresses *
+                    Email Address *
                   </label>
                   <input
                     type="email"
