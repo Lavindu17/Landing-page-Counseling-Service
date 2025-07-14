@@ -38,7 +38,7 @@ const FAQ = () => {
     {
       question: "What if I'm in crisis or need immediate help?",
       answer:
-        "If you're experiencing a mental health crisis, please call 988 (Suicide & Crisis Lifeline) or go to your nearest emergency room. For urgent but non-emergency situations, you can call my office and I'll do my best to accommodate same-day appointments or provide appropriate referrals.",
+        "If you're experiencing a mental health crisis, please 1333(Courage Compassion Commitment) or go to your nearest emergency room. For urgent but non-emergency situations, you can call my office and I'll do my best to accommodate same-day appointments or provide appropriate referrals.",
     },
   ];
 

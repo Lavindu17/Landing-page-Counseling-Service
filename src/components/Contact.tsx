@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { createClient } from "@supabase/supabase-js";
 
-const Contact = () => {
+// Initialize Supabase client (use environment variables)
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
+const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,17 +16,34 @@ const Contact = () => {
     contactMethod: "email",
     message: "",
   });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
+    setIsSubmitted(false); // Reset submission status
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+    try {
+      // Insert form data into Supabase
+      const { error } = await supabase
+        .from("contact_submissions") // Replace with your table name
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            contact_method: formData.contactMethod,
+            message: formData.message,
+            created_at: new Date().toISOString(),
+          },
+        ]);
+
+      if (error) {
+        throw new Error(error.message || "Failed to submit form");
+      }
+
+      // If successful
+      setIsSubmitted(true);
       setFormData({
         name: "",
         email: "",
@@ -27,7 +51,16 @@ const Contact = () => {
         contactMethod: "email",
         message: "",
       });
-    }, 3000);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert(`Error submitting form: ${(error as Error).message}`); // Display error to user
+      setIsSubmitted(false); // Keep form visible on error
+    }
   };
 
   const handleChange = (
