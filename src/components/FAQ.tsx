@@ -15,7 +15,6 @@ const FAQ = () => {
       answer:
         "Most clients benefit from weekly sessions, especially in the beginning. As you progress, we may adjust the frequency to bi-weekly or monthly sessions based on your needs and goals. The frequency is always determined collaboratively based on your unique situation.",
     },
-
     {
       question: "What should I expect in my first session?",
       answer:
