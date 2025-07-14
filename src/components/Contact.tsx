@@ -103,8 +103,17 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-emerald-200/15 to-teal-200/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-gradient-to-r from-teal-200/15 to-cyan-200/15 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
             Get Started Today
@@ -117,7 +126,7 @@ const Contact: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-slate-50 rounded-xl p-8">
+          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50">
             <h3 className="text-2xl font-bold text-slate-800 mb-6">
               Send a Message
             </h3>
@@ -138,7 +147,7 @@ const Contact: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-white/80 backdrop-blur-sm transition-all duration-300 placeholder:text-slate-400"
                     placeholder="Your full name"
                   />
                 </div>
@@ -157,7 +166,7 @@ const Contact: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-white/80 backdrop-blur-sm transition-all duration-300 placeholder:text-slate-400"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -175,7 +184,7 @@ const Contact: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-white/80 backdrop-blur-sm transition-all duration-300 placeholder:text-slate-400"
                     placeholder="071 234 5678"
                   />
                 </div>
@@ -192,7 +201,7 @@ const Contact: React.FC = () => {
                     name="contactMethod"
                     value={formData.contactMethod}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200"
+                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-white/80 backdrop-blur-sm transition-all duration-300"
                   >
                     <option value="email">Email</option>
                     <option value="phone">Phone</option>
@@ -213,7 +222,7 @@ const Contact: React.FC = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 bg-white/80 backdrop-blur-sm transition-all duration-300 resize-none placeholder:text-slate-400"
                     placeholder="Tell me a bit about what brings you here and how I can help..."
                   />
                 </div>
@@ -221,11 +230,11 @@ const Contact: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 disabled:bg-emerald-400 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center"
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-4 rounded-xl font-semibold hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   {isLoading ? (
                     <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-white/30 border-t-white mr-2"></div>
                       Sending...
                     </>
                   ) : (
@@ -237,8 +246,10 @@ const Contact: React.FC = () => {
                 </button>
               </form>
             ) : (
-              <div className="text-center py-8">
-                <CheckCircle className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
+              <div className="text-center py-8 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl">
+                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-white" />
+                </div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   Thank You for Reaching Out!
                 </h3>
@@ -253,65 +264,80 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-6">
-              Contact Information
-            </h3>
+          <div className="space-y-6">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">
+                Contact Information
+              </h3>
 
-            <div className="space-y-6 mb-8">
-              <div className="flex items-start">
-                <MapPin className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-slate-800">Office Address</p>
-                  <p className="text-slate-600">
-                    235/A <br />
-                    Wawila Road (70620)
-                  </p>
+              <div className="space-y-6">
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-emerald-500 to-teal-500 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-800">
+                      Office Address
+                    </p>
+                    <p className="text-slate-600">
+                      235/A <br />
+                      Wawila Road (70620)
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-slate-800">Phone</p>
-                  <a
-                    href="tel:+94718000623"
-                    className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
-                  >
-                    (+94) 71 8000 623
-                  </a>
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-teal-500 to-cyan-500 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Phone className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-800">Phone</p>
+                    <a
+                      href="tel:+94718000623"
+                      className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
+                    >
+                      (+94) 71 8000 623
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start">
-                <Mail className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-slate-800">Email</p>
-                  <a
-                    href="mailto:sajeevansltas@gmail.com"
-                    className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
-                  >
-                    sajeevansltas@gmail.com
-                  </a>
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Mail className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-800">Email</p>
+                    <a
+                      href="mailto:sajeevansltas@gmail.com"
+                      className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
+                    >
+                      sajeevansltas@gmail.com
+                    </a>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex items-start">
-                <Clock className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-slate-800">Office Hours</p>
-                  <div className="text-slate-600">
-                    <p>Monday - Thursday: 9:00 AM - 7:00 PM</p>
-                    <p>Friday: 9:00 AM - 5:00 PM</p>
-                    <p>Saturday: 10:00 AM - 3:00 PM</p>
-                    <p>Sunday: Closed</p>
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-emerald-500 to-green-500 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Clock className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-800">Office Hours</p>
+                    <div className="text-slate-600 space-y-1">
+                      <p>Monday - Thursday: 9:00 AM - 7:00 PM</p>
+                      <p>Friday: 9:00 AM - 5:00 PM</p>
+                      <p>Saturday: 10:00 AM - 3:00 PM</p>
+                      <p>Sunday: Closed</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-              <h4 className="font-semibold text-amber-800 mb-2">
+            <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-6 shadow-lg">
+              <h4 className="font-semibold text-amber-800 mb-2 flex items-center">
+                <div className="bg-gradient-to-r from-amber-500 to-orange-500 w-6 h-6 rounded-full flex items-center justify-center mr-2">
+                  <span className="text-white text-sm">!</span>
+                </div>
                 Emergency Contact
               </h4>
               <p className="text-amber-700 text-sm">

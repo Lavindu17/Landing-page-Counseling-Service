@@ -1,53 +1,76 @@
 import React from "react";
-import { Award, BookOpen, Heart, Users } from "lucide-react";
+import { Award, BookOpen, Heart, Users, Sparkles } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-emerald-200/20 to-teal-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-gradient-to-r from-teal-200/20 to-cyan-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-cyan-200/10 to-emerald-200/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
-              About Sajeewan Priyantha
-            </h2>
+            <div className="mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4">
+                About Sajeewan Priyantha
+              </h2>
+              <div className="flex items-center gap-2 text-slate-600">
+                <Sparkles className="h-5 w-5 text-emerald-500" />
+                <span className="font-medium">Professional Counselor</span>
+              </div>
+            </div>
 
-            <div className="prose prose-lg text-slate-600 mb-8">
-              <p className="mb-4">
-                As a newly licensed professional counselor, I bring fresh
-                energy, contemporary training, and a deep commitment to helping
-                individuals navigate life's challenges. My recent graduate
-                education from ICBT provided me with the latest evidence-based
-                therapeutic techniques and a strong foundation in
-                trauma-informed care
-              </p>
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 mb-8">
+              <div className="prose prose-lg text-slate-600">
+                <p className="mb-4">
+                  As a newly licensed professional counselor, I bring fresh
+                  energy, contemporary training, and a deep commitment to
+                  helping individuals navigate life's challenges. My recent
+                  graduate education from ICBT provided me with the latest
+                  evidence-based therapeutic techniques and a strong foundation
+                  in trauma-informed care.
+                </p>
 
-              <p className="mb-4">
-                I believe that everyone deserves access to quality mental health
-                support, and I'm passionate about creating a safe,
-                non-judgmental space where clients can explore their thoughts
-                and feelings. My approach combines proven therapeutic methods
-                with genuine empathy and understanding, helping individuals
-                develop coping strategies and work toward meaningful change.
-              </p>
+                <p className="mb-4">
+                  I believe that everyone deserves access to quality mental
+                  health support, and I'm passionate about creating a safe,
+                  non-judgmental space where clients can explore their thoughts
+                  and feelings. My approach combines proven therapeutic methods
+                  with genuine empathy and understanding, helping individuals
+                  develop coping strategies and work toward meaningful change.
+                </p>
 
-              <p>
-                What drives my work is the opportunity to be part of someone's
-                healing journey from the very beginning of my career. I'm
-                committed to ongoing professional development and staying
-                current with the latest research and best practices in mental
-                health treatment."
-              </p>
+                <p>
+                  What drives my work is the opportunity to be part of someone's
+                  healing journey from the very beginning of my career. I'm
+                  committed to ongoing professional development and staying
+                  current with the latest research and best practices in mental
+                  health treatment.
+                </p>
+              </div>
             </div>
 
             {/* Credentials */}
-            <div className="bg-slate-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-slate-800 mb-4">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50">
+              <h3 className="text-xl font-semibold text-slate-800 mb-6 flex items-center">
+                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-8 h-8 rounded-full flex items-center justify-center mr-3">
+                  <Award className="h-4 w-4 text-white" />
+                </div>
                 Professional Credentials
               </h3>
-              <div className="grid grid-cols-1 gap-4 w-full">
-                <div className="flex items-start">
-                  <Award className="h-5 w-5 text-emerald-600 mr-3 mt-1" />
+              <div className="grid grid-cols-1 gap-6 w-full">
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-emerald-400 to-teal-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Award className="h-5 w-5 text-white" />
+                  </div>
                   <div className="w-full">
                     <p className="font-medium text-slate-800">
                       Licensed Professional Counselor
@@ -57,21 +80,11 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                {/*}
-                <div className="flex items-start">
-                  <BookOpen className="h-5 w-5 text-emerald-600 mr-3 mt-1" />
-                  <div>
-                    <p className="font-medium text-slate-800">
-                      Ph.D. in Clinical Psychology
-                    </p>
-                    <p className="text-slate-600 text-sm">
-                      University of California, Berkeley
-                    </p>
-                  </div>
-                </div>*
 
-                <div className="flex items-start">
-                  <Heart className="h-5 w-5 text-emerald-600 mr-3 mt-1" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-teal-400 to-cyan-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Heart className="h-5 w-5 text-white" />
+                  </div>
                   <div>
                     <p className="font-medium text-slate-800">
                       Trauma-Informed Care Certified
@@ -82,15 +95,33 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <Users className="h-5 w-5 text-emerald-600 mr-3 mt-1" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-cyan-400 to-blue-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <Users className="h-5 w-5 text-white" />
+                  </div>
                   <div>
                     <p className="font-medium text-slate-800">
-                      American Psychological Association
+                      Group Therapy Specialist
                     </p>
-                    <p className="text-slate-600 text-sm">Member since 2008</p>
+                    <p className="text-slate-600 text-sm">
+                      American Group Psychotherapy Association
+                    </p>
                   </div>
-                </div>*/}
+                </div>
+
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-r from-blue-400 to-indigo-400 p-2 rounded-xl mr-4 group-hover:shadow-lg transition-all duration-300">
+                    <BookOpen className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-slate-800">
+                      Continuing Education
+                    </p>
+                    <p className="text-slate-600 text-sm">
+                      Regular training in latest therapeutic techniques
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -106,19 +137,17 @@ const About = () => {
             </div>
 
             {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-6 border border-slate-100">
+            <div className="absolute -bottom-6 -left-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/50">
               <div className="text-center">
                 <div className="text-2xl font-bold text-emerald-600">Fresh</div>
                 <div className="text-slate-600 text-sm">Perspective</div>
               </div>
             </div>
 
-            <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-6 border border-slate-100">
+            <div className="absolute -top-6 -right-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-white/50">
               <div className="text-center">
-                <div className="text-2xl font-bold text-emerald-600">
-                  Certified
-                </div>
-                <div className="text-slate-600 text-sm">Counselour</div>
+                <div className="text-2xl font-bold text-teal-600">100%</div>
+                <div className="text-slate-600 text-sm">Dedicated</div>
               </div>
             </div>
           </div>
