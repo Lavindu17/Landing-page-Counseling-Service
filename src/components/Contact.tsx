@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    contactMethod: 'email',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    contactMethod: "email",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     setIsSubmitted(true);
-    
+
     // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        contactMethod: 'email',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        contactMethod: "email",
+        message: "",
       });
     }, 3000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -45,21 +49,25 @@ const Contact = () => {
             Get Started Today
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Ready to take the first step toward better mental health? I'm here to help you on your journey.
+            Ready to take the first step toward better mental health? I'm here
+            to help you on your journey.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-slate-50 rounded-xl p-8">
             <h3 className="text-2xl font-bold text-slate-800 mb-6">
               Send a Message
             </h3>
-            
+
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -73,9 +81,12 @@ const Contact = () => {
                     placeholder="Your full name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -89,9 +100,12 @@ const Contact = () => {
                     placeholder="your@email.com"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -104,9 +118,12 @@ const Contact = () => {
                     placeholder="(123) 456-7890"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="contactMethod" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label
+                    htmlFor="contactMethod"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
                     Preferred Contact Method
                   </label>
                   <select
@@ -121,9 +138,12 @@ const Contact = () => {
                     <option value="either">Either</option>
                   </select>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-slate-700 mb-2"
+                  >
                     Message / Reason for Contact
                   </label>
                   <textarea
@@ -136,7 +156,7 @@ const Contact = () => {
                     placeholder="Tell me a bit about what brings you here and how I can help..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 flex items-center justify-center"
@@ -160,25 +180,25 @@ const Contact = () => {
               </div>
             )}
           </div>
-          
+
           {/* Contact Information */}
           <div>
             <h3 className="text-2xl font-bold text-slate-800 mb-6">
               Contact Information
             </h3>
-            
+
             <div className="space-y-6 mb-8">
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
                 <div>
                   <p className="font-semibold text-slate-800">Office Address</p>
                   <p className="text-slate-600">
-                    123 Wellness Way, Suite 200<br />
-                    San Francisco, CA 94105
+                    235/A <br />
+                    Wawila Road (70620)
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Phone className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
                 <div>
@@ -187,24 +207,24 @@ const Contact = () => {
                     href="tel:+1234567890"
                     className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
                   >
-                    (123) 456-7890
+                    (+94) 71 8000 623
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Mail className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
                 <div>
                   <p className="font-semibold text-slate-800">Email</p>
                   <a
-                    href="mailto:dr.mitchell@mindwellcounseling.com"
+                    href="mailto:sajeevansltas@gmail.com"
                     className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
                   >
-                    dr.mitchell@mindwellcounseling.com
+                    sajeevansltas@gmail.com
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Clock className="h-6 w-6 text-emerald-600 mr-4 mt-1" />
                 <div>
@@ -218,15 +238,16 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
               <h4 className="font-semibold text-amber-800 mb-2">
                 Emergency Contact
               </h4>
               <p className="text-amber-700 text-sm">
-                If you're experiencing a mental health crisis, please call 988 (Suicide & Crisis Lifeline) 
-                or go to your nearest emergency room. For urgent but non-emergency situations, 
-                call my office and I'll do my best to accommodate same-day appointments.
+                If you're experiencing a mental health crisis, please call 1333
+                (Courage Compassion Commitment) or go to your nearest emergency
+                room. For urgent but non-emergency situations, call my office
+                and I'll do my best to accommodate same-day appointments.
               </p>
             </div>
           </div>
