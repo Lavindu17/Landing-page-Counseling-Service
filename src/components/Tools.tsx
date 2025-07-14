@@ -1,5 +1,13 @@
-import React from 'react';
-import { ExternalLink, Clock, CheckCircle, Shield, BarChart3, Heart, Brain } from 'lucide-react';
+import React from "react";
+import {
+  ExternalLink,
+  Clock,
+  CheckCircle,
+  Shield,
+  BarChart3,
+  Heart,
+  Brain,
+} from "lucide-react";
 
 const Tools = () => {
   const tools = [
@@ -11,9 +19,9 @@ const Tools = () => {
         "5-minute completion time",
         "Measures depression, anxiety, and stress levels",
         "Clinically validated screening tool",
-        "Immediate results with explanations"
+        "Immediate results with explanations",
       ],
-      link: "#"
+      link: "https://meantal-health-assessement.netlify.app/",
     },
     {
       icon: <Heart className="h-8 w-8 text-emerald-600" />,
@@ -23,9 +31,9 @@ const Tools = () => {
         "10-minute comprehensive assessment",
         "Evaluates communication and connection",
         "Based on Gottman research",
-        "Personalized recommendations"
+        "Personalized recommendations",
       ],
-      link: "#"
+      link: "#",
     },
     {
       icon: <Brain className="h-8 w-8 text-emerald-600" />,
@@ -35,32 +43,36 @@ const Tools = () => {
         "7-minute mindfulness evaluation",
         "Measures attention and awareness",
         "Research-backed questionnaire",
-        "Includes mindfulness exercises"
+        "Includes mindfulness exercises",
       ],
-      link: "#"
-    }
+      link: "#",
+    },
   ];
 
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section id="tools" className="py-20 bg-gradient-to-br from-emerald-50 to-sky-50">
+    <section
+      id="tools"
+      className="py-20 bg-gradient-to-br from-emerald-50 to-sky-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
             Free Mental Health Assessment Tools
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Take advantage of these professional-grade assessment tools to better understand your mental health 
-            and identify areas where counseling might be beneficial.
+            Take advantage of these professional-grade assessment tools to
+            better understand your mental health and identify areas where
+            counseling might be beneficial.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {tools.map((tool, index) => (
             <div
@@ -73,12 +85,10 @@ const Tools = () => {
                   <h3 className="text-xl font-semibold text-slate-800">
                     {tool.title}
                   </h3>
-                  <p className="text-slate-600 text-sm">
-                    {tool.subtitle}
-                  </p>
+                  <p className="text-slate-600 text-sm">{tool.subtitle}</p>
                 </div>
               </div>
-              
+
               <div className="space-y-3 mb-6">
                 {tool.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start">
@@ -87,9 +97,9 @@ const Tools = () => {
                   </div>
                 ))}
               </div>
-              
+
               <button
-                onClick={() => window.open(tool.link, '_blank')}
+                onClick={() => window.open(tool.link, "_blank")}
                 className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors duration-200 flex items-center justify-center"
               >
                 Take Assessment
@@ -98,7 +108,7 @@ const Tools = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="bg-white rounded-xl p-8 shadow-lg border border-slate-100">
           <div className="flex items-start mb-4">
             <Shield className="h-6 w-6 text-amber-600 mr-3 mt-1" />
@@ -107,14 +117,16 @@ const Tools = () => {
                 Important Disclaimer
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                These assessment tools are for informational and educational purposes only. They are not 
-                intended to replace professional mental health evaluation or treatment. Results should be 
-                discussed with a qualified mental health professional for proper interpretation and guidance.
+                These assessment tools are for informational and educational
+                purposes only. They are not intended to replace professional
+                mental health evaluation or treatment. Results should be
+                discussed with a qualified mental health professional for proper
+                interpretation and guidance.
               </p>
             </div>
           </div>
         </div>
-        
+
         <div className="text-center mt-12">
           <button
             onClick={scrollToContact}
