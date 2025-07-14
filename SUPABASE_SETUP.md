@@ -12,10 +12,12 @@
 
 Your `.env` file should contain:
 
-```
+```env
 VITE_SUPABASE_URL="https://silnkythlmluxjjzxgvm.supabase.co"
-VITE_SUPABASE_ANON_KEY="your-anon-key-here"
+VITE_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpbG5reXRobG1sdXhqanp4Z3ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1MjIxNDMsImV4cCI6MjA2ODA5ODE0M30.Ik-H7d-tvErGQSNvq449_UKZvmw8W9rbINRKLZj0EVI"
 ```
+
+**Note:** The URL should point to your Supabase project URL, not the dashboard URL.
 
 ### 3. Table Structure
 

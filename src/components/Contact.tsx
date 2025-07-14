@@ -242,7 +242,7 @@ const Contact: React.FC = () => {
                   I've received your message and will respond within 24 hours.
                 </p>
                 <p className="text-sm text-slate-500">
-                  If this is urgent, please call (123) 456-7890
+                  If this is urgent, please call (+94) 71 8000 623
                 </p>
               </div>
             )}
@@ -271,7 +271,7 @@ const Contact: React.FC = () => {
                 <div>
                   <p className="font-semibold text-slate-800">Phone</p>
                   <a
-                    href="tel:+1234567890"
+                    href="tel:+94718000623"
                     className="text-slate-600 hover:text-emerald-600 transition-colors duration-200"
                   >
                     (+94) 71 8000 623
