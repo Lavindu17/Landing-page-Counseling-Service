@@ -3,11 +3,15 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl =
+  import.meta.env.VITE_SUPABASE_URL ||
+  "https://silnkythlmluxjjzxgvm.supabase.co";
+const supabaseAnonKey =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNpbG5reXRobG1sdXhqanp4Z3ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI1MjIxNDMsImV4cCI6MjA2ODA5ODE0M30.Ik-H7d-tvErGQSNvq449_UKZvmw8W9rbINRKLZj0EVI";
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables");
+  console.error("Missing Supabase environment variables");
 }
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
