@@ -21,6 +21,15 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Blog", href: "#blog" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -43,41 +52,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
-            >
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
-            >
-              About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
-            >
-              Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("tools")}
-              className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
-            >
-              Tools
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
-            >
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-            </button>
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href.slice(1))}
+                className="text-slate-700 hover:text-emerald-600 transition-colors duration-300 font-medium relative group"
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
+              </button>
+            ))}
           </nav>
 
           {/* Desktop CTA */}
@@ -114,36 +98,15 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-lg border-t border-emerald-100/30 shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
-              >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
-                className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
-              >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection("tools")}
-                className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
-              >
-                Tools
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
-              >
-                Contact
-              </button>
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href.slice(1))}
+                  className="block w-full text-left px-3 py-3 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-lg transition-all duration-300 font-medium"
+                >
+                  {link.name}
+                </button>
+              ))}
               <div className="px-3 py-3 border-t border-emerald-100/30 mt-2">
                 <a
                   href="tel:+94718000623"

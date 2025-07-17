@@ -3,7 +3,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
 import Tools from "./components/Tools";
-import Testimonials from "./components/Testimonials";
+import Blogs from "./components/Blogs"; // Add this import
+//import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -16,7 +17,7 @@ function App() {
       <About />
       <Services />
       <Tools />
-      <Testimonials />
+      <Blogs /> {/* Add this component */}
       <FAQ />
       <Contact />
       <Footer />
