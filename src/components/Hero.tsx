@@ -71,10 +71,7 @@ const Hero = () => {
               rel="noopener noreferrer"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5 mr-2 relative z-10 fill-emerald-600"
-              ></svg>
+              <Phone className="h-5 w-5 mr-2 relative z-10" />
               <span className="relative z-10">
                 Schedule a meeting Anonymousely
               </span>
