@@ -88,7 +88,7 @@ const About = () => {
           <div className="relative">
             <div className="bg-gradient-to-br from-emerald-100 to-sky-100 rounded-2xl p-8">
               <img
-                src="https://scontent.fcmb1-2.fna.fbcdn.net/v/t39.30808-6/490423511_2671882433020695_5814158748285136557_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGb7skl8s03r7FHyys63-Y65HMtGiF0E5jkcy0aIXQTmOEamt92D_b6prAAu2HiXfTorDVqqHqDH3lDKw0q9lSb&_nc_ohc=l7uzQpqhe78Q7kNvwHY_4pP&_nc_oc=AdlTF8ZRs67CsItqxwhAY6Y3wk0UxnbEPdOEoE8JKGzfp1ayjxyiz9jsF9V9JfNSH-0ZDOnhzqh8qD0uhRbU-qKy&_nc_zt=23&_nc_ht=scontent.fcmb1-2.fna&_nc_gid=vAe_8QOC9qD0ZeAOtABZFA&oh=00_AfRe01o81mKCnk_64IA2JCj06BQ5JvTyC4D4_ExS_js3hA&oe=687B2FB5"
+                src="../public/aboutme.jpg"
                 alt="Sajeewan Priyantha - Professional Counselor"
                 className="w-full h-auto rounded-xl shadow-lg"
               />

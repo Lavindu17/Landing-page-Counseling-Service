@@ -46,7 +46,7 @@ const Header = () => {
               <Leaf className="h-5 w-5 text-white" />
             </div>
             <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">
-              Bright Mind Counseling
+              Bright Mind Care Counseling
             </h1>
           </div>
 

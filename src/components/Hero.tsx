@@ -65,12 +65,19 @@ const Hero = () => {
             </button>
 
             <a
-              href="tel:+94718000623"
+              href="https://wa.me/94718000623"
               className="group relative bg-white/80 backdrop-blur-sm text-emerald-700 px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center border border-emerald-200/50"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-              <Phone className="h-5 w-5 mr-2 relative z-10" />
-              <span className="relative z-10">+94 71 8000 623</span>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 mr-2 relative z-10 fill-emerald-600"
+              ></svg>
+              <span className="relative z-10">
+                Schedule a meeting Anonymousely
+              </span>
             </a>
           </div>
 
